@@ -51,7 +51,7 @@ const postNewProduct = async (req, res, next) => {
   const deleteProduct = async (req, res, next) => {
     try {
       const { id } = req.params;
-      const productDB = await Product.findOneAndDelete({ id: id });
+      const productDB = await Product.findOneAndDelete({ _id: id });
       if (!productDB) {
         return next(setError(404, "Error borrando product"));
       }
